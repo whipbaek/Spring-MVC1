@@ -17,9 +17,10 @@ public class HelloServlet extends HttpServlet {
         System.out.println("request = " + request);
         System.out.println("response = " + response);
 
-        String username = request.getParameter("username");
+        String username = request.getParameter("username"); //query parameter를 조회할 수 있다.
         System.out.println("username = " + username);
 
+        //응답 메세지
         response.setContentType("text/plain");
         response.setCharacterEncoding("utf-8");
         response.getWriter().write("hello " + username);

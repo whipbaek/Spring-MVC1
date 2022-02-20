@@ -7,10 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+<<<<<<< HEAD
 
 @WebServlet(name = "requestHeaderServlet", urlPatterns = "/request-header")
 public class RequestHeaderServlet extends HttpServlet {
 
+=======
+import java.util.Enumeration;
+
+@WebServlet(name = "requestHeaderServlet", urlPatterns = "/request-header")
+public class RequestHeaderServlet extends HttpServlet {
+>>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -18,7 +25,10 @@ public class RequestHeaderServlet extends HttpServlet {
         printHeaders(request);
         printHeaderUtils(request);
         printEtc(request);
+<<<<<<< HEAD
         response.getWriter().write("ok");
+=======
+>>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
     }
 
     private void printStartLine(HttpServletRequest request) {
@@ -37,6 +47,7 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- REQUEST-LINE - end ---");
         System.out.println();
     }
+<<<<<<< HEAD
     private void printHeaders(HttpServletRequest request) {
         System.out.println("--- Headers - start ---");
 /*
@@ -48,6 +59,22 @@ public class RequestHeaderServlet extends HttpServlet {
 */
         request.getHeaderNames().asIterator()
                 .forEachRemaining(headerName -> System.out.println(headerName + ": " + request.getHeader(headerName)));
+=======
+
+    private void printHeaders(HttpServletRequest request) {
+        System.out.println("--- Headers - start ---");
+/*
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            System.out.println(headerName + ": " + headerName);
+        }
+*/
+
+        request.getHeaderNames().asIterator()
+                        .forEachRemaining(headerName -> System.out.println(headerName + ": " + headerName));
+
+>>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
         System.out.println("--- Headers - end ---");
         System.out.println();
     }
@@ -105,6 +132,9 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- 기타 조회 end ---");
         System.out.println();
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
 }
