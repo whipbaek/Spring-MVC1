@@ -1,36 +1,24 @@
-package springmvc.servlet.basic.request;
-
+package hello.servlet.basic.request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
-<<<<<<< HEAD
-
+//http://localhost:8080/request-header?username=hello
 @WebServlet(name = "requestHeaderServlet", urlPatterns = "/request-header")
 public class RequestHeaderServlet extends HttpServlet {
-
-=======
-import java.util.Enumeration;
-
-@WebServlet(name = "requestHeaderServlet", urlPatterns = "/request-header")
-public class RequestHeaderServlet extends HttpServlet {
->>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void service(HttpServletRequest request, HttpServletResponse
+            response)
+            throws ServletException, IOException {
         printStartLine(request);
         printHeaders(request);
         printHeaderUtils(request);
         printEtc(request);
-<<<<<<< HEAD
         response.getWriter().write("ok");
-=======
->>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
     }
 
+
+    //start line 정보
     private void printStartLine(HttpServletRequest request) {
         System.out.println("--- REQUEST-LINE - start ---");
         System.out.println("request.getMethod() = " + request.getMethod()); //GET
@@ -47,7 +35,8 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- REQUEST-LINE - end ---");
         System.out.println();
     }
-<<<<<<< HEAD
+
+    //Header 모든 정보
     private void printHeaders(HttpServletRequest request) {
         System.out.println("--- Headers - start ---");
 /*
@@ -59,22 +48,6 @@ public class RequestHeaderServlet extends HttpServlet {
 */
         request.getHeaderNames().asIterator()
                 .forEachRemaining(headerName -> System.out.println(headerName + ": " + request.getHeader(headerName)));
-=======
-
-    private void printHeaders(HttpServletRequest request) {
-        System.out.println("--- Headers - start ---");
-/*
-        Enumeration<String> headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String headerName = headerNames.nextElement();
-            System.out.println(headerName + ": " + headerName);
-        }
-*/
-
-        request.getHeaderNames().asIterator()
-                        .forEachRemaining(headerName -> System.out.println(headerName + ": " + headerName));
-
->>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
         System.out.println("--- Headers - end ---");
         System.out.println();
     }
@@ -132,9 +105,4 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- 기타 조회 end ---");
         System.out.println();
     }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5c9e3d6e55a295fde05261774835e0084052b4ad
 }
